@@ -4,15 +4,24 @@ import styled from "styled-components";
 import AccessTimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import HelpOutlinedIcon from '@mui/icons-material/HelpOutlined';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
 
 
 
 function Header() {
+
+  const [user] = useAuthState(auth);
+
   return (
     <HeaderContainer>
       {/* HEader left */}
       <HeaderLeft>
-        <HeaderAvatar/>
+        <HeaderAvatar 
+          onClick={() => auth.signOut()}
+          alt={user?.displayName}
+          src={user?.photoURL}
+        />
         <AccessTimeRoundedIcon/>
       </HeaderLeft>
 
