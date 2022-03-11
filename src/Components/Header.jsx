@@ -18,7 +18,7 @@ function Header() {
       {/* HEader left */}
       <HeaderLeft>
         <HeaderAvatar 
-          onClick={() => auth.signOut()}
+          onClick={() => auth.signOut}
           alt={user?.displayName}
           src={user?.photoURL}
         />
@@ -77,12 +77,12 @@ padding: 0 50px;
 color: gray;
 border: 1px gray solid;
 
->input{
+> input{
   background-color: transparent;
   border: none;
   text-align: center;
   min-width: 30vw;
-  outline: none;
+  outline: 0;
   color: white;
 }
 `;
